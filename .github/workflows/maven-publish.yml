@@ -20,8 +20,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: "AKIA3JNIGLYQQHY3LAVL" #${{ secrets.ACTIONS_ECR_AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: "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" #${{ secrets.ACTIONS_ECR_AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.ACTIONS_ECR_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.ACTIONS_ECR_AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
       - name: Login to SharedServices Amazon ECR
