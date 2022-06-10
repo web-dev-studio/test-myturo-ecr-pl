@@ -36,9 +36,6 @@ jobs:
         env:
           ECR_REGISTRY: 776131206689.dkr.ecr.us-east-1.amazonaws.com #${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: tutor-onboarding-app-be
-          IMAGE_TAG: "latest"
-        run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA
+          IMAGE_TAG: $(echo $GITHUB_SHA | head -c 6)
+        run: echo $IMAGE_TAG
+
