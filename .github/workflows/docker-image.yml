@@ -12,8 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-      - name: Build image
-        run: docker build -t some/image:$SHA8 .
-      - name: Build another image
-        run: docker build -t other/image:$SHA8 .
+        run: docker build . --file Dockerfile --tag backend:$(date +%s)
+      - name: Tag image
+        run: docker tag backend:$(date +%s) backend:$SHA8
