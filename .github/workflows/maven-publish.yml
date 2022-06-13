@@ -39,7 +39,7 @@ jobs:
         #env:
           #IMAGE_TAG: $(GITHUB_SHA:7)
         run: |
-          docker build -t $GITHUB_SHA .
-          docker tag $GITHUB_SHA $ECR_REGISTRY/$ECR_REPOSITORY:latest
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:latest $ECR_REGISTRY/$ECR_REPOSITORY:test1
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:test1
 
