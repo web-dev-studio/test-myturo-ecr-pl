@@ -11,5 +11,6 @@ RUN mvn -f /home/app/pom.xml clean package
 #
 FROM openjdk:11-jre-slim
 COPY --from=build /home/app/target/my-app-1.0-SNAPSHOT.jar /usr/local/lib/demo.jar
+USER admin
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/demo.jar"]
